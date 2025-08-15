@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" sizes="192x192">
+<meta name="theme-color" content="#0b1324">
+<title>David vs. Goliath: Startup Revolution</title>
+<meta name="description" content="Biblical-historical, reflective web app. Made by Justin — Depths to Heights.">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #0b1324 0%, #1e3c52 50%, #2a5a7a 100%);
+  color: #f0f0f0;
+  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.6;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  color: #ffd700;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 10px #ffd700; }
+  to { text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 20px #ffd700, 0 0 30px #ffd700; }
+}
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  font-size: 1.1rem;
+  color: #b8d4e3;
+}
+.startup-status {
+  background: rgba(0,0,0,0.4);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+}
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.status-item {
+  text-align: center;
+  padding: 15px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255,215,0,0.3);
+}
+.status-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 8px;
+  color: #b8d4e3;
+}
+.status-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+.status-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.innovation-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  transition: width 1s ease;
+}
+.community-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+  transition: width 1s ease;
+}
+.integrity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #30cfd0 0%, #330867 100%);
+  transition: width 1s ease;
+}
+.impact-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd700 0%, #ff6b6b 100%);
+  transition: width 1s ease;
+}
+.battle-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 35px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,215,0,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.goliath-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.goliath-name {
+  font-size: 2rem;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.goliath-type {
+  display: inline-block;
+  padding: 5px 15px;
+  background: rgba(255,107,107,0.2);
+  border: 1px solid #ff6b6b;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #ffaaaa;
+}
+.goliath-description {
+  background: rgba(0,0,0,0.3);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ff6b6b;
+}
+.goliath-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.goliath-stat {
+  background: rgba(255,107,107,0.1);
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+.stat-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+.your-resources {
+  background: rgba(255,215,0,0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255,215,0,0.3);
+}
+.resources-title {
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.resource-item {
+  padding: 8px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+.resource-item:before {
+  content: "✓ ";
+  color: #ffd700;
+  font-weight: bold;
+}
+.strategy-section {
+  margin-top: 30px;
+}
+.strategy-title {
+  color: #ffd700;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+.strategy-btn {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,215,0,0.3);
+  color: #f0f0f0;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+.strategy-btn:hover {
+  background: rgba(255,215,0,0.15);
+  transform: translateY(-5px);
+  border-color: #ffd700;
+  box-shadow: 0 10px 20px rgba(255,215,0,0.2);
+}
+.strategy-name {
+  font-weight: bold;
+  color: #ffd700;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+.strategy-description {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.strategy-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #b8d4e3;
+  margin-top: 10px;
+}
+.battle-outcome {
+  background: rgba(0,0,0,0.4);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px 0;
+  display: none;
+  animation: slideIn 0.5s ease;
+  border: 2px solid rgba(255,215,0,0.5);
+}
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.outcome-title {
+  color: #ffd700;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.outcome-text {
+  margin-bottom: 25px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+.outcome-rewards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.reward-item {
+  background: rgba(255,215,0,0.1);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(255,215,0,0.3);
+}
+.reward-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+.reward-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+.victory { color: #4facfe; }
+.defeat { color: #ff6b6b; }
+.continue-btn {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #0b1324;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.continue-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+}
+.scripture-stone {
+  background: rgba(0,0,0,0.3);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 30px 0;
+  text-align: center;
+  font-style: italic;
+  border: 1px solid rgba(255,215,0,0.2);
+}
+.scripture-text {
+  margin-bottom: 10px;
+  color: #b8d4e3;
+  font-size: 1.05rem;
+}
+.scripture-ref {
+  font-size: 0.95rem;
+  color: #ffd700;
+  font-weight: bold;
+}
+.revolution-tracker {
+  background: rgba(255,215,0,0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 30px 0;
+}
+.tracker-title {
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.victories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+.victory-item {
+  background: rgba(0,0,0,0.3);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+.victory-count {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+.victory-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+.about-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,215,0,0.2);
+  border: 1px solid rgba(255,215,0,0.4);
+  color: #ffd700;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  z-index: 100;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+.modal-content {
+  background: linear-gradient(135deg, #0b1324 0%, #1e3c52 100%);
+  border-radius: 15px;
+  padding: 35px;
+  max-width: 500px;
+  margin: 50px auto;
+  border: 2px solid rgba(255,215,0,0.3);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.close-modal {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ffd700;
+}
+.close-modal:hover {
+  color: #ffed4e;
+}
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,215,0,0.2);
+  border: 1px solid rgba(255,215,0,0.4);
+  color: #ffd700;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.music-btn:hover {
+  background: rgba(255,215,0,0.3);
+  transform: scale(1.1);
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="./epic-music.mp3" type="audio/mpeg">
+  <source src="./epic-music.ogg" type="audio/ogg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🔇</button>
+<button class="about-btn" onclick="openModal()">About + Help</button>
+
+<div class="container">
+  <h1>David vs. Goliath: Startup Revolution</h1>
+  <p class="subtitle">"David said to the Philistine, 'You come against me with sword and spear... but I come against you in the name of the Lord'" - 1 Samuel 17:45</p>
+
+  <div class="startup-status">
+    <div class="status-grid">
+      <div class="status-item">
+        <div class="status-label">Innovation Power</div>
+        <div class="status-value" id="innovationValue">45</div>
+        <div class="status-bar">
+          <div class="innovation-fill" id="innovationFill" style="width: 45%"></div>
+        </div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">Community Support</div>
+        <div class="status-value" id="communityValue">30</div>
+        <div class="status-bar">
+          <div class="community-fill" id="communityFill" style="width: 30%"></div>
+        </div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">Integrity Score</div>
+        <div class="status-value" id="integrityValue">75</div>
+        <div class="status-bar">
+          <div class="integrity-fill" id="integrityFill" style="width: 75%"></div>
+        </div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">Market Impact</div>
+        <div class="status-value" id="impactValue">20</div>
+        <div class="status-bar">
+          <div class="impact-fill" id="impactFill" style="width: 20%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="battle-card">
+    <div class="goliath-header">
+      <h2 class="goliath-name" id="goliathName">Loading Giant...</h2>
+      <span class="goliath-type" id="goliathType">Corporate Monopoly</span>
+    </div>
+
+    <div class="goliath-description" id="goliathDescription">
+      Loading challenge details...
+    </div>
+
+    <div class="goliath-stats">
+      <div class="goliath-stat">
+        <div class="stat-label">Market Control</div>
+        <div class="stat-value" id="marketControl">95%</div>
+      </div>
+      <div class="goliath-stat">
+        <div class="stat-label">Legal Army</div>
+        <div class="stat-value" id="legalPower">500+</div>
+      </div>
+      <div class="goliath-stat">
+        <div class="stat-label">War Chest</div>
+        <div class="stat-value" id="warChest">$50B</div>
+      </div>
+    </div>
+
+    <div class="your-resources">
+      <div class="resources-title">Your Startup Arsenal:</div>
+      <div class="resource-list" id="resourceList">
+        <div class="resource-item">Passionate team of 5</div>
+        <div class="resource-item">$10,000 seed funding</div>
+        <div class="resource-item">Innovative solution</div>
+        <div class="resource-item">Community goodwill</div>
+      </div>
+    </div>
+
+    <div class="strategy-section">
+      <div class="strategy-title">Choose Your Stone (Strategy):</div>
+      <div class="strategy-grid" id="strategyGrid">
+        <!-- Strategies will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <div class="battle-outcome" id="battleOutcome">
+    <div class="outcome-title" id="outcomeTitle">Battle Result</div>
+    <div class="outcome-text" id="outcomeText"></div>
+    <div class="outcome-rewards">
+      <div class="reward-item">
+        <div class="reward-label">Innovation</div>
+        <div class="reward-value" id="innovationReward">+0</div>
+      </div>
+      <div class="reward-item">
+        <div class="reward-label">Community</div>
+        <div class="reward-value" id="communityReward">+0</div>
+      </div>
+      <div class="reward-item">
+        <div class="reward-label">Integrity</div>
+        <div class="reward-value" id="integrityReward">+0</div>
+      </div>
+      <div class="reward-item">
+        <div class="reward-label">Impact</div>
+        <div class="reward-value" id="impactReward">+0</div>
+      </div>
+    </div>
+    <button class="continue-btn" onclick="nextBattle()">Face Next Giant</button>
+  </div>
+
+  <div class="scripture-stone">
+    <div class="scripture-text">
+      "Then David said to the Philistine, 'You come to me with a sword and with a spear and with a javelin, but I come to you in the name of the Lord of hosts.'"
+    </div>
+    <div class="scripture-ref">1 Samuel 17:45</div>
+  </div>
+
+  <div class="revolution-tracker">
+    <div class="tracker-title">Your Revolution Impact</div>
+    <div class="victories-grid">
+      <div class="victory-item">
+        <div class="victory-count" id="giantsDefeated">2</div>
+        <div class="victory-label">Giants Defeated</div>
+      </div>
+      <div class="victory-item">
+        <div class="victory-count" id="peopleHelped">50K</div>
+        <div class="victory-label">People Helped</div>
+      </div>
+      <div class="victory-item">
+        <div class="victory-count" id="systemsChanged">1</div>
+        <div class="victory-label">Systems Changed</div>
+      </div>
+      <div class="victory-item">
+        <div class="victory-count" id="movementsStarted">3</div>
+        <div class="victory-label">Movements Started</div>
+      </div>
+    </div>
+  </div>
+
+  <div role="note" style="margin:16px 0;font-size:.95rem;opacity:.95">
+    This app is free! If it inspired you, support my mission at
+    <a href="https://www.paypal.com/donate/?hosted_button_id=8GRE7B8C3TP2U" target="_blank" rel="noopener">this link</a>. Thanks! — Made by Justin — Depths to Heights
+  </div>
+</div>
+
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <h2>About David vs. Goliath: Startup Revolution</h2>
+    <p style="margin: 15px 0;">
+      Step into the sandals of a modern David - a small startup founder or activist taking on corporate giants. Use innovation, integrity, and community support to challenge monopolies, corruption, and injustice.
+    </p>
+    <h3 style="margin-top: 20px; color: #ffd700;">Your Mission</h3>
+    <ul style="margin: 15px 0; padding-left: 20px;">
+      <li>Challenge corporate monopolies with innovation</li>
+      <li>Fight corruption with transparency</li>
+      <li>Build community-powered movements</li>
+      <li>Maintain integrity while disrupting systems</li>
+      <li>Prove that small can defeat mighty</li>
+    </ul>
+    <h3 style="margin-top: 20px; color: #ffd700;">Remember David's Advantages</h3>
+    <ul style="margin: 15px 0; padding-left: 20px;">
+      <li>Agility over size</li>
+      <li>Innovation over tradition</li>
+      <li>Purpose over profit</li>
+      <li>Community over capital</li>
+      <li>Faith over fear</li>
+    </ul>
+    <h3 style="margin-top: 20px; color: #ffd700;">Contact & Support</h3>
+    <p style="margin: 15px 0;">
+      <strong>Made by Justin — Depths to Heights</strong><br>
+      Email: depthstoheights@gmail.com<br>
+      Website: <a href="https://depthstoheights.org" target="_blank" style="color: #ffd700;">depthstoheights.org</a><br>
+      Support: <a href="https://www.paypal.com/donate/?hosted_button_id=8GRE7B8C3TP2U" target="_blank" style="color: #ffd700;">Donate</a>
+    </p>
+    <p style="background: rgba(255,107,107,0.1); padding: 15px; border-radius: 8px; margin: 15px 0;">
+      <strong>Disclaimer:</strong> Spiritual encouragement and education — not medical advice.<br>
+      In the U.S., call/text <strong>988</strong> (Suicide & Crisis Lifeline).
+    </p>
+  </div>
+</div>
+
+<script>
+// Background music control
+let musicPlaying = false;
+const bgMusic = document.getElementById('bgMusic');
+bgMusic.volume = 0.2;
+
+function toggleMusic() {
+  const musicBtn = document.querySelector('.music-btn');
+  if (musicPlaying) {
+    bgMusic.pause();
+    musicBtn.textContent = '🔇';
+  } else {
+    bgMusic.play().catch(e => console.log('Music autoplay prevented'));
+    musicBtn.textContent = '🎵';
+  }
+  musicPlaying = !musicPlaying;
+}
+
+// Giants data
+const giants = [
+  {
+    name: "MegaCorp Monopoly",
+    type: "Tech Monopoly",
+    description: "A tech giant controlling 95% of social media, crushing competitors through acquisition or litigation. They harvest user data without consent and manipulate public opinion for profit.",
+    marketControl: "95%",
+    legalPower: "1000+",
+    warChest: "$100B",
+    resources: [
+      "Team of 5 developers",
+      "$50K crowdfunding",
+      "Privacy-first platform",
+      "User trust"
+    ],
+    strategies: [
+      {
+        name: "The Open Source Stone",
+        description: "Release your technology as open source, making it impossible to kill or buy out.",
+        stats: "High Innovation, High Community, Low Profit",
+        innovation: 25,
+        community: 30,
+        integrity: 15,
+        impact: 20
+      },
+      {
+        name: "The Whistleblower Sling",
+        description: "Expose their data violations to regulators and media, forcing government action.",
+        stats: "High Impact, Risk to Safety",
+        innovation: 10,
+        community: 20,
+        integrity: 25,
+        impact: 35
+      },
+      {
+        name: "The Viral Campaign",
+        description: "Launch a grassroots movement showing people how to break free from their ecosystem.",
+        stats: "High Community, Moderate Impact",
+        innovation: 15,
+        community: 35,
+        integrity: 10,
+        impact: 25
+      },
+      {
+        name: "The Legal Aikido",
+        description: "Use their own terms of service against them, finding loopholes they can't close.",
+        stats: "Smart Innovation, High Risk",
+        innovation: 30,
+        community: 10,
+        integrity: 5,
+        impact: 20
+      }
+    ]
+  },
+  {
+    name: "Big Pharma Greed",
+    type: "Healthcare Monopoly",
+    description: "A pharmaceutical giant charging $10,000 for life-saving medicine that costs $10 to produce. They lobby against generic alternatives and let people die for profit.",
+    marketControl: "87%",
+    legalPower: "500+",
+    warChest: "$75B",
+    resources: [
+      "Biochemist volunteers",
+      "Lab equipment",
+      "Patient advocacy groups",
+      "Moral high ground"
+    ],
+    strategies: [
+      {
+        name: "The Generic Rebellion",
+        description: "Create and distribute generic versions in countries where patents don't apply.",
+        stats: "High Impact, Legal Grey Area",
+        innovation: 20,
+        community: 25,
+        integrity: -10,
+        impact: 40
+      },
+      {
+        name: "The Public Pressure",
+        description: "Organize patients to shame executives at shareholder meetings and public events.",
+        stats: "High Community, Moderate Impact",
+        innovation: 5,
+        community: 40,
+        integrity: 20,
+        impact: 25
+      },
+      {
+        name: "The Research Revolution",
+        description: "Crowdfund open research to find alternative treatments outside their patents.",
+        stats: "High Innovation, Long-term Impact",
+        innovation: 35,
+        community: 20,
+        integrity: 25,
+        impact: 15
+      },
+      {
+        name: "The Political Storm",
+        description: "Rally voters to elect leaders who promise pharmaceutical reform.",
+        stats: "Slow but Systemic Change",
+        innovation: 10,
+        community: 30,
+        integrity: 15,
+        impact: 30
+      }
+    ]
+  },
+  {
+    name: "Fast Fashion Destroyer",
+    type: "Environmental Criminal",
+    description: "A clothing empire built on sweatshop labor and environmental destruction. They produce 52 'seasons' a year, creating massive waste while workers suffer in horrible conditions.",
+    marketControl: "70%",
+    legalPower: "300+",
+    warChest: "$30B",
+    resources: [
+      "Ethical designers",
+      "Sustainable materials",
+      "Worker testimonies",
+      "Environmental data"
+    ],
+    strategies: [
+      {
+        name: "The Transparency Attack",
+        description: "Create an app showing the true cost of each garment in human and environmental terms.",
+        stats: "High Innovation, Education Focus",
+        innovation: 30,
+        community: 20,
+        integrity: 20,
+        impact: 25
+      },
+      {
+        name: "The Sustainable Alternative",
+        description: "Launch a clothing swap platform that makes sustainable fashion trendy and accessible.",
+        stats: "Community Building, Market Disruption",
+        innovation: 25,
+        community: 35,
+        integrity: 15,
+        impact: 20
+      },
+      {
+        name: "The Worker Alliance",
+        description: "Help workers organize unions and expose conditions through social media.",
+        stats: "High Risk, High Integrity",
+        innovation: 10,
+        community: 30,
+        integrity: 30,
+        impact: 25
+      },
+      {
+        name: "The Influencer Flip",
+        description: "Convert fashion influencers to promote sustainable brands instead.",
+        stats: "Cultural Shift Strategy",
+        innovation: 15,
+        community: 25,
+        integrity: 10,
+        impact: 35
+      }
+    ]
+  },
+  {
+    name: "Gig Economy Exploiter",
+    type: "Labor Exploiter",
+    description: "A 'sharing economy' giant that treats workers as contractors to avoid benefits while taking 40% of their earnings. They use algorithms to manipulate workers into longer hours for less pay.",
+    marketControl: "80%",
+    legalPower: "600+",
+    warChest: "$40B",
+    resources: [
+      "Coder collective",
+      "Driver unions",
+      "Legal volunteers",
+      "Media connections"
+    ],
+    strategies: [
+      {
+        name: "The Co-op Creation",
+        description: "Build a driver-owned alternative where workers keep 95% of fares.",
+        stats: "Structural Revolution",
+        innovation: 25,
+        community: 40,
+        integrity: 25,
+        impact: 20
+      },
+      {
+        name: "The Algorithm Exposure",
+        description: "Reverse engineer and expose how their algorithm exploits workers.",
+        stats: "Technical Warfare",
+        innovation: 35,
+        community: 15,
+        integrity: 15,
+        impact: 30
+      },
+      {
+        name: "The Legislative Blitz",
+        description: "Push for laws forcing them to treat drivers as employees with benefits.",
+        stats: "Systemic Change",
+        innovation: 10,
+        community: 25,
+        integrity: 20,
+        impact: 35
+      },
+      {
+        name: "The Strike Coordination",
+        description: "Organize simultaneous strikes in major cities during peak times.",
+        stats: "Direct Action",
+        innovation: 15,
+        community: 35,
+        integrity: 15,
+        impact: 30
+      }
+    ]
+  },
+  {
+    name: "Food Industry Poison",
+    type: "Health Destroyer",
+    description: "A food conglomerate adding addictive chemicals to products marketed to children. They fund fake research to hide health impacts while obesity and diabetes rates soar.",
+    marketControl: "65%",
+    legalPower: "400+",
+    warChest: "$50B",
+    resources: [
+      "Nutritionists",
+      "Parent groups",
+      "School allies",
+      "Health data"
+    ],
+    strategies: [
+      {
+        name: "The School Revolution",
+        description: "Organize parents to ban their products from schools nationwide.",
+        stats: "Grassroots Power",
+        innovation: 10,
+        community: 45,
+        integrity: 20,
+        impact: 25
+      },
+      {
+        name: "The Truth Labels",
+        description: "Create an app that translates ingredients into health impacts in real-time.",
+        stats: "Education Through Tech",
+        innovation: 30,
+        community: 20,
+        integrity: 25,
+        impact: 20
+      },
+      {
+        name: "The Alternative Ecosystem",
+        description: "Build a network of local, healthy food producers and distributors.",
+        stats: "System Replacement",
+        innovation: 25,
+        community: 30,
+        integrity: 20,
+        impact: 20
+      },
+      {
+        name: "The Documentary Bomb",
+        description: "Produce a viral documentary exposing their practices with insider footage.",
+        stats: "Media Warfare",
+        innovation: 20,
+        community: 25,
+        integrity: 15,
+        impact: 35
+      }
+    ]
+  },
+  {
+    name: "Rental Market Mafia",
+    type: "Housing Exploiter",
+    description: "A property management algorithm buying thousands of homes to create artificial scarcity. They coordinate rent increases across cities, making housing unaffordable for millions.",
+    marketControl: "40%",
+    legalPower: "800+",
+    warChest: "$60B",
+    resources: [
+      "Housing advocates",
+      "Tenant unions",
+      "City councils",
+      "Economic data"
+    ],
+    strategies: [
+      {
+        name: "The Tenant Takeover",
+        description: "Organize mass rent strikes until fair pricing is restored.",
+        stats: "High Risk Direct Action",
+        innovation: 5,
+        community: 40,
+        integrity: 10,
+        impact: 35
+      },
+      {
+        name: "The Co-housing Movement",
+        description: "Create community land trusts that permanently affordable housing.",
+        stats: "Long-term Solution",
+        innovation: 30,
+        community: 35,
+        integrity: 25,
+        impact: 15
+      },
+      {
+        name: "The Algorithm Antidote",
+        description: "Build a platform helping people find housing outside their system.",
+        stats: "Tech Counter-Attack",
+        innovation: 35,
+        community: 20,
+        integrity: 15,
+        impact: 25
+      },
+      {
+        name: "The Regulation Revolution",
+        description: "Push for laws limiting corporate ownership of residential property.",
+        stats: "Policy Change",
+        innovation: 10,
+        community: 30,
+        integrity: 25,
+        impact: 30
+      }
+    ]
+  },
+  {
+    name: "Data Mining Monster",
+    type: "Privacy Violator",
+    description: "A data broker selling personal information of billions without consent. They know more about people than governments, selling profiles to anyone who pays.",
+    marketControl: "75%",
+    legalPower: "200+",
+    warChest: "$20B",
+    resources: [
+      "Privacy activists",
+      "Ethical hackers",
+      "Legal experts",
+      "Encrypted tools"
+    ],
+    strategies: [
+      {
+        name: "The Privacy Shield",
+        description: "Create free tools that block their tracking across the internet.",
+        stats: "Defensive Innovation",
+        innovation: 35,
+        community: 25,
+        integrity: 20,
+        impact: 20
+      },
+      {
+        name: "The GDPR Hammer",
+        description: "File mass privacy complaints triggering massive regulatory fines.",
+        stats: "Legal Warfare",
+        innovation: 15,
+        community: 20,
+        integrity: 25,
+        impact: 35
+      },
+      {
+        name: "The Data Poison",
+        description: "Flood their systems with fake data making their profiles worthless.",
+        stats: "Sabotage Tactics",
+        innovation: 30,
+        community: 15,
+        integrity: -5,
+        impact: 30
+      },
+      {
+        name: "The Awareness Campaign",
+        description: "Show people exactly what data is collected and how it's used against them.",
+        stats: "Education Focus",
+        innovation: 20,
+        community: 35,
+        integrity: 25,
+        impact: 15
+      }
+    ]
+  },
+  {
+    name: "Education Debt Trap",
+    type: "Financial Predator",
+    description: "A student loan company charging 15% interest while lobbying against loan forgiveness. They profit from keeping graduates in debt for decades.",
+    marketControl: "55%",
+    legalPower: "700+",
+    warChest: "$35B",
+    resources: [
+      "Student activists",
+      "Alternative educators",
+      "Financial advisors",
+      "Political allies"
+    ],
+    strategies: [
+      {
+        name: "The Free Education Platform",
+        description: "Build an accredited online university offering free degrees.",
+        stats: "Systemic Disruption",
+        innovation: 40,
+        community: 30,
+        integrity: 20,
+        impact: 15
+      },
+      {
+        name: "The Debt Strike",
+        description: "Organize mass refusal to pay until interest rates are capped.",
+        stats: "Collective Action",
+        innovation: 5,
+        community: 35,
+        integrity: 5,
+        impact: 40
+      },
+      {
+        name: "The Employer Alliance",
+        description: "Convince major employers to hire based on skills, not degrees.",
+        stats: "Market Shift",
+        innovation: 25,
+        community: 20,
+        integrity: 20,
+        impact: 30
+      },
+      {
+        name: "The Political Revolution",
+        description: "Mobilize young voters to elect leaders promising debt cancellation.",
+        stats: "Electoral Strategy",
+        innovation: 10,
+        community: 40,
+        integrity: 15,
+        impact: 25
+      }
+    ]
+  }
+];
+
+let currentGiant = 0;
+let stats = {
+  innovation: 45,
+  community: 30,
+  integrity: 75,
+  impact: 20,
+  giantsDefeated: 2,
+  peopleHelped: 50,
+  systemsChanged: 1,
+  movementsStarted: 3
+};
+
+function loadBattle() {
+  const giant = giants[currentGiant];
+  
+  document.getElementById('goliathName').textContent = giant.name;
+  document.getElementById('goliathType').textContent = giant.type;
+  document.getElementById('goliathDescription').textContent = giant.description;
+  document.getElementById('marketControl').textContent = giant.marketControl;
+  document.getElementById('legalPower').textContent = giant.legalPower;
+  document.getElementById('warChest').textContent = giant.warChest;
+  
+  // Load resources
+  const resourceList = document.getElementById('resourceList');
+  resourceList.innerHTML = giant.resources.map(r => 
+    `<div class="resource-item">${r}</div>`
+  ).join('');
+  
+  // Load strategies
+  const strategyGrid = document.getElementById('strategyGrid');
+  strategyGrid.innerHTML = giant.strategies.map((strategy, index) => `
+    <button class="strategy-btn" onclick="executeStrategy(${index})">
+      <div class="strategy-name">${strategy.name}</div>
+      <div class="strategy-description">${strategy.description}</div>
+      <div class="strategy-stats">${strategy.stats}</div>
+    </button>
+  `).join('');
+  
+  document.getElementById('battleOutcome').style.display = 'none';
+}
+
+function executeStrategy(strategyIndex) {
+  const giant = giants[currentGiant];
+  const strategy = giant.strategies[strategyIndex];
+  
+  // Update stats
+  stats.innovation = Math.max(0, Math.min(100, stats.innovation + strategy.innovation));
+  stats.community = Math.max(0, Math.min(100, stats.community + strategy.community));
+  stats.integrity = Math.max(0, Math.min(100, stats.integrity + strategy.integrity));
+  stats.impact = Math.max(0, Math.min(100, stats.impact + strategy.impact));
+  
+  // Update display
+  updateStats();
+  
+  // Generate outcome
+  let outcomeText = '';
+  const totalPower = strategy.innovation + strategy.community + strategy.integrity + strategy.impact;
+  
+  if (totalPower >= 70) {
+    outcomeText = `Victory! Your ${strategy.name} strikes true! Like David's stone finding its mark, your strategy hits the giant where they're most vulnerable. The giant stumbles, and the people cheer as they see Goliath can indeed fall. Your startup has proven that innovation and integrity can triumph over monopolistic might.`;
+    stats.giantsDefeated++;
+    stats.systemsChanged++;
+    document.getElementById('outcomeTitle').textContent = '⚔️ GIANT SLAIN! ⚔️';
+    document.getElementById('outcomeTitle').className = 'outcome-title victory';
+  } else if (totalPower >= 40) {
+    outcomeText = `Partial Victory! Your ${strategy.name} wounds the giant but doesn't bring them down. You've exposed their weaknesses and inspired others to join the fight. The giant is forced to change some practices, and people begin to see that change is possible.`;
+    stats.movementsStarted++;
+    document.getElementById('outcomeTitle').textContent = '🎯 Giant Wounded!';
+    document.getElementById('outcomeTitle').className = 'outcome-title';
+  } else {
+    outcomeText = `Strategic Retreat. Your ${strategy.name} doesn't have enough force to damage the giant significantly. But like David chose his stones carefully, you've learned what doesn't work. Regroup, rebuild, and prepare for the next encounter with greater wisdom.`;
+    document.getElementById('outcomeTitle').textContent = '🛡️ Regroup and Learn';
+    document.getElementById('outcomeTitle').className = 'outcome-title defeat';
+  }
+  
+  document.getElementById('outcomeText').textContent = outcomeText;
+  
+  // Show rewards
+  showReward('innovationReward', strategy.innovation);
+  showReward('communityReward', strategy.community);
+  showReward('integrityReward', strategy.integrity);
+  showReward('impactReward', strategy.impact);
+  
+  // Update global stats
+  stats.peopleHelped += Math.floor(Math.random() * 50) + 10;
+  updateGlobalStats();
+  
+  // Show outcome
+  document.getElementById('battleOutcome').style.display = 'block';
+  document.getElementById('battleOutcome').scrollIntoView({ behavior: 'smooth' });
+}
+
+function showReward(elementId, value) {
+  const element = document.getElementById(elementId);
+  element.textContent = (value >= 0 ? '+' : '') + value;
+  element.className = 'reward-value ' + (value >= 0 ? 'victory' : 'defeat');
+}
+
+function updateStats() {
+  document.getElementById('innovationValue').textContent = Math.round(stats.innovation);
+  document.getElementById('innovationFill').style.width = stats.innovation + '%';
+  
+  document.getElementById('communityValue').textContent = Math.round(stats.community);
+  document.getElementById('communityFill').style.width = stats.community + '%';
+  
+  document.getElementById('integrityValue').textContent = Math.round(stats.integrity);
+  document.getElementById('integrityFill').style.width = stats.integrity + '%';
+  
+  document.getElementById('impactValue').textContent = Math.round(stats.impact);
+  document.getElementById('impactFill').style.width = stats.impact + '%';
+}
+
+function updateGlobalStats() {
+  document.getElementById('giantsDefeated').textContent = stats.giantsDefeated;
+  document.getElementById('peopleHelped').textContent = 
+    stats.peopleHelped >= 1000 ? (stats.peopleHelped / 1000).toFixed(1) + 'M' : stats.peopleHelped + 'K';
+  document.getElementById('systemsChanged').textContent = stats.systemsChanged;
+  document.getElementById('movementsStarted').textContent = stats.movementsStarted;
+}
+
+function nextBattle() {
+  currentGiant = (currentGiant + 1) % giants.length;
+  loadBattle();
+  document.querySelector('.battle-card').scrollIntoView({ behavior: 'smooth' });
+}
+
+function openModal() {
+  document.getElementById('aboutModal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('aboutModal').style.display = 'none';
+}
+
+// Initialize
+loadBattle();
+updateStats();
+updateGlobalStats();
+
+// Auto-play music on first interaction
+document.addEventListener('click', function() {
+  if (!musicPlaying && bgMusic.paused) {
+    // User can choose to enable music
+  }
+}, { once: true });
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js');
+  }
+</script>
+</body>
+</html>
